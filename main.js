@@ -19,8 +19,9 @@ async function weatherFetch(cityName) {
       `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${cityName}?key=${apiKey}`
     );
     const data = await response.json();
-
     console.log(data);
+    const dataFiltered = dataConversion(data);
+    console.log(dataFiltered);
     let fahrenheitTemp = data.currentConditions.temp;
     let celsius = ((fahrenheitTemp - 32) * 5) / 9;
 
@@ -30,4 +31,15 @@ async function weatherFetch(cityName) {
     console.error("Error", error);
   }
 }
+
+function dataConversion(jsonResponse) {
+  let fahrenheitTemp = jsonResponse.currentConditions.temp;
+  let weatherInfo = jsonResponse.description;
+  let latitude = jsonResponse.latitude;
+  let longitude = jsonResponse.longitude;
+  let alerts = jsonResponse.alerts; // String!!!
+
+  return { fahrenheitTemp, weatherInfo, latitude, latitude, alerts };
+}
+
 getUserInput();
