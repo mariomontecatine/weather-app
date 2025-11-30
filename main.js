@@ -22,8 +22,8 @@ async function weatherFetch(cityName) {
     console.log(data);
     const dataFiltered = dataConversion(data);
     console.log(dataFiltered);
-    let fahrenheitTemp = data.currentConditions.temp;
-    let celsius = ((fahrenheitTemp - 32) * 5) / 9;
+    let fahrenheitTemp = dataFiltered.currentConditions.temp;
+    let celsius = toCelsius(fahrenheitTemp);
 
     console.log(`La temperatura actual es: ${fahrenheitTemp}`);
     console.log(`The temperature in Celsius is ${celsius.toFixed(2)}`);
@@ -33,13 +33,17 @@ async function weatherFetch(cityName) {
 }
 
 function dataConversion(jsonResponse) {
-  let fahrenheitTemp = jsonResponse.currentConditions.temp;
-  let weatherInfo = jsonResponse.description;
+  let currentConditions = jsonResponse.currentConditions.temp;
+  let description = jsonResponse.description;
   let latitude = jsonResponse.latitude;
   let longitude = jsonResponse.longitude;
   let alerts = jsonResponse.alerts; // String!!!
 
-  return { fahrenheitTemp, weatherInfo, latitude, latitude, alerts };
+  return { currentConditions, description, latitude, longitude, alerts };
+}
+
+function toCelsius(fahrenheit) {
+  return ((fahrenheit - 32) * 5) / 9;
 }
 
 getUserInput();
