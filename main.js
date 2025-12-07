@@ -34,7 +34,7 @@ async function weatherFetch(cityName) {
     const dataFiltered = dataConversion(data);
     console.log("Filtrado:", dataFiltered);
 
-    displayWeather(dataFiltered); // ⬅️ AÑADIDO
+    displayWeather(dataFiltered);
   } catch (error) {
     console.error("Error", error);
   }
