@@ -5,3 +5,32 @@
   align-items: start;
   gap: 0.3rem;
 }
+
+button,
+input[type="submit"] {
+  font-family: et-book, serif;
+  padding: 0.3rem;
+  border: 1px solid #888;
+  border-radius: 3px;
+  background: #f3f3e8;
+  cursor: pointer;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background: #e9e9d5;
+}
+
+input::placeholder {
+  color: #666;
+  font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD",
+    "Book Antiqua", Georgia, serif;
+}
+
+label {
+  font-size: 1.5rem;
+}
+
+.hidden {
+  display: none;
+}
