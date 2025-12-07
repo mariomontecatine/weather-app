@@ -12,9 +12,20 @@
     <h1>World Weather</h1>
     <form action="" id="cityForm">
       <label for="cityInput">Every city, just one click</label
-      ><input id="cityInput" type="text" placeholder="Madrid" />
+      ><input id="cityInput" type="text" placeholder="Vinewood" />
       <button type="submit" form="cityForm">Enviar</button>
     </form>
+
+    <div id="weatherInfo" class="hidden">
+      <h2 id="cityName"></h2>
+      <img id="weatherIcon" alt="Weather icon" width="100" />
+
+      <p><strong>Temperatura:</strong> <span id="temp"></span></p>
+      <p><strong>Zona horaria:</strong> <span id="timezone"></span></p>
+      <p><strong>Latitud:</strong> <span id="lat"></span></p>
+      <p><strong>Longitud:</strong> <span id="lon"></span></p>
+      <p><strong>Alertas:</strong> <span id="alerts"></span></p>
+    </div>
 
     <script src="main.js" defer></script>
   </body>
